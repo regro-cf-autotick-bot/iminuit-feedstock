@@ -18,9 +18,12 @@ build:
 
 requirements:
   host:
+    - python
     - pip
     - numpy
   run:
+    - python
+    - pytest
     - {{ pin_compatible('numpy') }}
 
 test:
