@@ -1,9 +1,9 @@
 About iminuit
 =============
 
-Home: https://github.com/iminuit/iminuit
+Home: https://github.com/scikit-hep/iminuit
 
-Package license: LGPL v2
+Package license: MIT and LGPL v2
 
 Feedstock license: BSD 3-Clause
 
