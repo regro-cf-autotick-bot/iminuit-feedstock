@@ -1,7 +1,7 @@
 {% set name = "iminuit" %}
-{% set version = "1.3.3" %}
+{% set version = "1.3.6" %}
 {% set hash_type = "sha256" %}
-{% set hash_value = "3235c7e540b278eb55ff851c2a8b299e825db6c770ba15c80140d2fd270ca4ba" %}
+{% set hash_value = "d79a197f305d4708a0e3e52b0a6748c1a6997360d2fbdfd09c022995a6963b5e" %}
 
 package:
   name: '{{ name|lower }}'
@@ -13,7 +13,7 @@ source:
   '{{ hash_type }}': '{{ hash_value }}'
 
 build:
-  number: 1000
+  number: 0
   script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
 
 requirements:
@@ -27,16 +27,18 @@ requirements:
     - cython
   run:
     - python
-    - pytest
     - {{ pin_compatible('numpy') }}
 
 test:
-  imports:
-    - iminuit
-    - iminuit.frontends
+  requires:
+    - python
+    - {{ pin_compatible('numpy') }}
+    - pytest
+  commands:
+    - python -c "import iminuit, sys; sys.exit(iminuit.test())"
 
 about:
-  home: https://github.com/iminuit/iminuit
+  home: https://github.com/scikit-hep/iminuit
   license: LGPL v2
   license_family: LGPL
   license_file: LICENSE
@@ -51,7 +53,7 @@ about:
     Existing PyMinuit code can be ported to iminuit by just changing the
     import statement.
   doc_url:  http://iminuit.readthedocs.io
-  dev_url: https://github.com/iminuit/iminuit
+  dev_url: https://github.com/scikit-hep/iminuit
 
 extra:
   recipe-maintainers:

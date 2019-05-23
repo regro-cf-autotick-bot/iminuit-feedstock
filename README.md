@@ -1,7 +1,7 @@
 About iminuit
 =============
 
-Home: https://github.com/iminuit/iminuit
+Home: https://github.com/scikit-hep/iminuit
 
 Package license: LGPL v2
 
