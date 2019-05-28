@@ -211,6 +211,8 @@ Feedstock Maintainers
 * [@beckermr](https://github.com/beckermr/)
 * [@bsipocz](https://github.com/bsipocz/)
 * [@cdeil](https://github.com/cdeil/)
+* [@chrisburr](https://github.com/chrisburr/)
+* [@henryiii](https://github.com/henryiii/)
 * [@mwcraig](https://github.com/mwcraig/)
 * [@piti118](https://github.com/piti118/)
 
