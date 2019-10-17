@@ -1,5 +1,5 @@
 {% set name = "iminuit" %}
-{% set version = "1.3.7" %}
+{% set version = "1.3.8" %}
 {% set hash_type = "sha256" %}
 {% set hash_value = "9173e52cc4a0c0bda13ebfb862f9b074dc5de345b23cb15c1150863aafd8a26c" %}
 
