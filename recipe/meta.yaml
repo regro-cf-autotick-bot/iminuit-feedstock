@@ -1,16 +1,13 @@
 {% set name = "iminuit" %}
 {% set version = "1.3.8" %}
-{% set hash_type = "sha256" %}
-{% set hash_value = "9173e52cc4a0c0bda13ebfb862f9b074dc5de345b23cb15c1150863aafd8a26c" %}
 
 package:
   name: '{{ name|lower }}'
   version: '{{ version }}'
 
 source:
-  fn: '{{ name }}-{{ version }}.tar.gz'
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  '{{ hash_type }}': '{{ hash_value }}'
+  sha256: ec7515a9dcb75b3a95563b12027f0e2543c6c2e0db3043248771a7576281e35d
 
 build:
   number: 0
@@ -31,8 +28,6 @@ requirements:
 
 test:
   requires:
-    - python
-    - {{ pin_compatible('numpy') }}
     - pytest
   commands:
     - python -c "import iminuit, sys; sys.exit(iminuit.test())"
