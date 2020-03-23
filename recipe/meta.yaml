@@ -34,7 +34,7 @@ test:
 
 about:
   home: https://github.com/scikit-hep/iminuit
-  license: LGPL v2
+  license: LGPL-2.0-only
   license_family: LGPL
   license_file: LICENSE
   summary: Interactive Minimization Tools based on MINUIT
