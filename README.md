@@ -3,7 +3,7 @@ About iminuit
 
 Home: https://github.com/scikit-hep/iminuit
 
-Package license: LGPL v2
+Package license: LGPL-2.0-or-later
 
 Feedstock license: BSD 3-Clause
 
@@ -286,7 +286,6 @@ Feedstock Maintainers
 * [@HDembinski](https://github.com/HDembinski/)
 * [@beckermr](https://github.com/beckermr/)
 * [@bsipocz](https://github.com/bsipocz/)
-* [@cdeil](https://github.com/cdeil/)
 * [@chrisburr](https://github.com/chrisburr/)
 * [@henryiii](https://github.com/henryiii/)
 * [@mwcraig](https://github.com/mwcraig/)
