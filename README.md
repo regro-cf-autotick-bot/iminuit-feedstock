@@ -3,7 +3,7 @@ About iminuit
 
 Home: https://github.com/scikit-hep/iminuit
 
-Package license: LGPL v2
+Package license: LGPL-2.0-or-later
 
 Feedstock license: BSD 3-Clause
 
