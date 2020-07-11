@@ -5,7 +5,7 @@ Home: https://github.com/scikit-hep/iminuit
 
 Package license: LGPL-2.0-or-later
 
-Feedstock license: BSD 3-Clause
+Feedstock license: BSD-3-Clause
 
 Summary: Interactive Minimization Tools based on MINUIT
 
