@@ -32,7 +32,7 @@ requirements:
 
 test:
   source_files:
-    - tests
+    - for_tests/tests
   requires:
     - pytest
   imports:
