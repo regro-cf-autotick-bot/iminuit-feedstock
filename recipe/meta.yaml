@@ -6,8 +6,12 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+- url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: b0a3b8ac9dccadcb0f4554fc8fb9c4a3583f356a7071c37e17a0f2bd6cda1b88
+- git_url: https://github.com/ilanschnell/bsdiff4.git
+  git_rev:  v2.0.0
+  git_depth: 1
+  folder: for_tests
 
 build:
   number: 0
@@ -22,9 +26,7 @@ requirements:
   host:
     - python
     - pip
-    - numpy
   run:
-    - python
     - {{ pin_compatible('numpy') }}
 
 test:
@@ -35,7 +37,7 @@ test:
   imports:
     - iminuit
   commands:
-    - python -m pytest tests
+    - python -m pytest for_tests/tests
 
 about:
   home: https://github.com/scikit-hep/iminuit
