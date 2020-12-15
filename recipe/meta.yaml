@@ -16,7 +16,8 @@ source:
 
 build:
   number: 0
-  script: {{ PYTHON }} -m pip install . -vv
+  script: CMAKE_BUILD_PARALLEL_LEVEL=1 {{ PYTHON }} -m pip install . -vv  # [linux and ppc64le]
+  script: {{ PYTHON }} -m pip install . -vv  # [not (linux and ppc64le)]
 
 requirements:
   build:
