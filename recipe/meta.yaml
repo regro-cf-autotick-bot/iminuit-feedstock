@@ -1,36 +1,46 @@
 {% set name = "iminuit" %}
-{% set version = "1.5.4" %}
+{% set version = "2.0.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: f71535f3adc41cf9591505512e44b7392457c1d86cb77ac70ad7b045981d5c76
+- url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: b0a3b8ac9dccadcb0f4554fc8fb9c4a3583f356a7071c37e17a0f2bd6cda1b88
+  patches:
+    - iminuit-2.0.1-wincomp.patch
+- git_url: https://github.com/scikit-hep/iminuit.git
+  git_rev:  v2.0.0
+  folder: for_tests
 
 build:
   number: 0
-  script: {{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv
+  script: CMAKE_BUILD_PARALLEL_LEVEL=1 {{ PYTHON }} -m pip install . -vv  # [linux and ppc64le]
+  script: {{ PYTHON }} -m pip install . -vv  # [not (linux and ppc64le)]
 
 requirements:
   build:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
+    - cmake
+    - make  # [unix]
   host:
     - python
     - pip
-    - numpy
-    - cython
   run:
     - python
     - {{ pin_compatible('numpy') }}
 
 test:
+  source_files:
+    - for_tests/tests
   requires:
     - pytest
+  imports:
+    - iminuit
   commands:
-    - python -c "import iminuit, sys; sys.exit(iminuit.test())"
+    - python -m pytest for_tests/tests
 
 about:
   home: https://github.com/scikit-hep/iminuit
