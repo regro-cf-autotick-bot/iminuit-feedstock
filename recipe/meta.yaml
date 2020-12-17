@@ -16,8 +16,9 @@ source:
 
 build:
   number: 0
-  script: CMAKE_BUILD_PARALLEL_LEVEL=1 {{ PYTHON }} -m pip install . -vv  # [linux and ppc64le]
-  script: {{ PYTHON }} -m pip install . -vv  # [not (linux and ppc64le)]
+  script:
+    - export CMAKE_BUILD_PARALLEL_LEVEL=${CPU_COUNT}
+    - {{ PYTHON }} -m pip install . -vvv
 
 requirements:
   build:
