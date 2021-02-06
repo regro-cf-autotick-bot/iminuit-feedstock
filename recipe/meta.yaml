@@ -35,10 +35,12 @@ test:
     - tests
   requires:
     - pytest
+    - pip
   imports:
     - iminuit
   commands:
     - python -m pytest tests
+    - pip check
 
 about:
   home: https://github.com/scikit-hep/iminuit
