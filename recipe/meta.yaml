@@ -1,18 +1,13 @@
 {% set name = "iminuit" %}
-{% set version = "2.0.0" %}
+{% set version = "2.3.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-- url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: b0a3b8ac9dccadcb0f4554fc8fb9c4a3583f356a7071c37e17a0f2bd6cda1b88
-  patches:
-    - iminuit-2.0.1-wincomp.patch
-- git_url: https://github.com/scikit-hep/iminuit.git
-  git_rev:  v2.0.0
-  folder: for_tests
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: 81c77fe9a22bf9e9bc665f3875c0b9483161161485a1b40d87f22a4b2ebed427
 
 build:
   number: 0
@@ -37,13 +32,13 @@ requirements:
 
 test:
   source_files:
-    - for_tests/tests
+    - tests
   requires:
     - pytest
   imports:
     - iminuit
   commands:
-    - python -m pytest for_tests/tests
+    - python -m pytest tests
 
 about:
   home: https://github.com/scikit-hep/iminuit
