@@ -1,0 +1,16 @@
+diff --git a/cmake_ext.py b/cmake_ext.py
+index 2c9cffa..e1a617e 100644
+--- a/cmake_ext.py
++++ b/cmake_ext.py
+@@ -58,6 +58,11 @@ class CMakeBuild(build_ext):
+             if archs:
+                 cmake_args += [f"-DCMAKE_OSX_ARCHITECTURES={';'.join(archs)}"]
+ 
++        # Adding CMake arguments set as environment variable
++        # (needed e.g. to build for ARM OSx on conda-forge)
++        if "CMAKE_ARGS" in os.environ:
++            cmake_args += os.environ["CMAKE_ARGS"].split(" ")
++
+         # Set CMAKE_BUILD_PARALLEL_LEVEL to control the parallel build level
+         # across all generators.
+         if "CMAKE_BUILD_PARALLEL_LEVEL" not in os.environ:
