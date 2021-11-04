@@ -11,7 +11,7 @@ source:
   patches: mypatch.patch
 
 build:
-  number: 0
+  number: 1
   script:
     - export CMAKE_BUILD_PARALLEL_LEVEL=${CPU_COUNT}
     - {{ PYTHON }} -m pip install . -vvv
