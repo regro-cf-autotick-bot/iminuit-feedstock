@@ -16,7 +16,7 @@ build:
   script:
     - export CMAKE_BUILD_PARALLEL_LEVEL=${CPU_COUNT}
     - export PYBIND11_ROOT=$({{ PYTHON }} -c "import pybind11; print(pybind11.get_cmake_dir())")
-    - export CMAKE_ARGS="$CMAKE_ARGS -DIMINUIT_EXTERNAL_PYTHON=ON"
+    - export CMAKE_ARGS="$CMAKE_ARGS -DIMINUIT_EXTERNAL_PYBIND11=ON"
     - {{ PYTHON }} -m pip install . -vvv
 
 requirements:
