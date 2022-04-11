@@ -14,10 +14,11 @@ source:
 build:
   number: 1
   script:
-    - export CMAKE_BUILD_PARALLEL_LEVEL=${CPU_COUNT}
-    - export PYBIND11_ROOT=$({{ PYTHON }} -c "import pybind11; print(pybind11.get_cmake_dir())")
-    - export CMAKE_ARGS="$CMAKE_ARGS -DIMINUIT_EXTERNAL_PYBIND11=ON"
-    - {{ PYTHON }} -m pip install . -vvv
+    - export CMAKE_BUILD_PARALLEL_LEVEL=${CPU_COUNT}  # [unix]
+    - export CMAKE_ARGS="$CMAKE_ARGS -DIMINUIT_EXTERNAL_PYBIND11=ON"  # [unix]
+    - set CMAKE_BUILD_PARALLEL_LEVEL=%CPU_COUNT%  # [win]
+    - set CMAKE_ARGS="%CMAKE_ARGS% -DIMINUIT_EXTERNAL_PYBIND11=ON"
+    - python -m pip install . -vvv
 
 requirements:
   build:
