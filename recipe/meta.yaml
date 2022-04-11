@@ -8,12 +8,15 @@ package:
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 8cae7917ca2d22c691e00792bfbbb812b84ac5c75120eb2ae879fb4ada41ee6c
-  patches: mypatch.patch
+  patches:
+    - externpybind11.patch
 
 build:
   number: 1
   script:
     - export CMAKE_BUILD_PARALLEL_LEVEL=${CPU_COUNT}
+    - export PYBIND11_ROOT=$({{ PYTHON }} -c "import pybind11; print(pybind11.get_cmake_dir())")
+    - export CMAKE_ARGS="$CMAKE_ARGS -DIMINUIT_EXTERNAL_PYTHON=ON"
     - {{ PYTHON }} -m pip install . -vvv
 
 requirements:
@@ -27,6 +30,7 @@ requirements:
   host:
     - python
     - pip
+    - pybind11
   run:
     - python
     - {{ pin_compatible('numpy') }}
