@@ -8,8 +8,6 @@ package:
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: cd0e3cb751302c066984eab30612c5d2419a54317febe51b50be1fa21afc51a9
-  patches:
-    - externpybind11.patch
 
 build:
   number: 0
