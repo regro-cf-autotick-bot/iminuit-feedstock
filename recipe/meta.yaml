@@ -1,5 +1,5 @@
 {% set name = "iminuit" %}
-{% set version = "2.11.2" %}
+{% set version = "2.12.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,10 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 8cae7917ca2d22c691e00792bfbbb812b84ac5c75120eb2ae879fb4ada41ee6c
-  patches:
-    - externpybind11.patch
+  sha256: cd0e3cb751302c066984eab30612c5d2419a54317febe51b50be1fa21afc51a9
 
 build:
-  number: 1
+  number: 0
   script:
     - export CMAKE_BUILD_PARALLEL_LEVEL=${CPU_COUNT}                  # [unix]
     - export CMAKE_ARGS="$CMAKE_ARGS -DIMINUIT_EXTERNAL_PYBIND11=ON"  # [unix]
