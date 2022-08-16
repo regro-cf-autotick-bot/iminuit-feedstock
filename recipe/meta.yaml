@@ -1,5 +1,5 @@
 {% set name = "iminuit" %}
-{% set version = "2.15.2" %}
+{% set version = "2.16.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 60ac7d2fe9405c9206675229273f401611d3f5dfa22942541646c4625b59f1ea
+  sha256: 1024a519dbc8fd52d5fd2a3779fd485b09bc27c40556def8b6f91695423199d6
 
 build:
   number: 0
