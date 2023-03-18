@@ -33,6 +33,7 @@ requirements:
   run:
     - python
     - {{ pin_compatible('numpy') }}
+    - typing_extensions  #[py<39]
 
 test:
   source_files:
