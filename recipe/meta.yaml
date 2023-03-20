@@ -1,5 +1,5 @@
 {% set name = "iminuit" %}
-{% set version = "2.20.0" %}
+{% set version = "2.21.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: a73fe6e02f35e3180fc01bc5c1794edf662ff1725c3bc2a4f433567799da7504
+  sha256: b151059621e252b6ca310a16d044b82c329521346b9d5d0668cdb14421cb5e0f
 
 build:
   number: 0
@@ -16,7 +16,7 @@ build:
     - export CMAKE_ARGS="$CMAKE_ARGS -DIMINUIT_EXTERNAL_PYBIND11=ON"  # [unix]
     - set CMAKE_BUILD_PARALLEL_LEVEL=%CPU_COUNT%                      # [win]
     - set CMAKE_ARGS="%CMAKE_ARGS% -DIMINUIT_EXTERNAL_PYBIND11=ON"    # [win]
-    - python -m pip install . -vvv
+    - {{ PYTHON }} -m pip install . -vvv
 
 requirements:
   build:
@@ -33,6 +33,7 @@ requirements:
   run:
     - python
     - {{ pin_compatible('numpy') }}
+    - typing_extensions  # [py<39]
 
 test:
   source_files:
