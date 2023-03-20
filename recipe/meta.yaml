@@ -1,5 +1,5 @@
 {% set name = "iminuit" %}
-{% set version = "2.21.1" %}
+{% set version = "2.21.2" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: b151059621e252b6ca310a16d044b82c329521346b9d5d0668cdb14421cb5e0f
+  sha256: 449b738f21e3d57510b3c786eefc867ba03a78e94351e0a05450f8db4c034a74
 
 build:
   number: 0
@@ -69,7 +69,6 @@ extra:
   recipe-maintainers:
     - mwcraig
     - bsipocz
-    - piti118
     - HDembinski
     - chrisburr
     - henryiii
