@@ -13,9 +13,7 @@ build:
   number: 0
   script:
     - export CMAKE_BUILD_PARALLEL_LEVEL=${CPU_COUNT}                  # [unix]
-    - export CMAKE_ARGS="$CMAKE_ARGS -DIMINUIT_EXTERNAL_PYBIND11=ON"  # [unix]
     - set CMAKE_BUILD_PARALLEL_LEVEL=%CPU_COUNT%                      # [win]
-    - set CMAKE_ARGS="%CMAKE_ARGS% -DIMINUIT_EXTERNAL_PYBIND11=ON"    # [win]
     - {{ PYTHON }} -m pip install . -vv
 
 requirements:
