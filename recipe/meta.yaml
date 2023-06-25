@@ -1,5 +1,5 @@
 {% set name = "iminuit" %}
-{% set version = "2.21.3" %}
+{% set version = "2.22.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,16 +7,14 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: fb313f0cc27e221b9b221bcd779b3a668fb4c77b0f90abfd5336833ecbdac016
+  sha256: e0ccc37bad8bc1bd3b9d3fa07d28d4c0407e25a888faa9b559be2d9afbd2d97c
 
 build:
   number: 0
   script:
     - export CMAKE_BUILD_PARALLEL_LEVEL=${CPU_COUNT}                  # [unix]
-    - export CMAKE_ARGS="$CMAKE_ARGS -DIMINUIT_EXTERNAL_PYBIND11=ON"  # [unix]
     - set CMAKE_BUILD_PARALLEL_LEVEL=%CPU_COUNT%                      # [win]
-    - set CMAKE_ARGS="%CMAKE_ARGS% -DIMINUIT_EXTERNAL_PYBIND11=ON"    # [win]
-    - {{ PYTHON }} -m pip install . -vvv
+    - {{ PYTHON }} -m pip install . -vv
 
 requirements:
   build:
@@ -24,11 +22,12 @@ requirements:
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    - cmake
+    - cmake >=3.15
     - make  # [unix]
   host:
     - python
     - pip
+    - scikit-build-core
     - pybind11
   run:
     - python
