@@ -16,7 +16,7 @@ build:
     - export CMAKE_ARGS="$CMAKE_ARGS -DIMINUIT_EXTERNAL_PYBIND11=ON"  # [unix]
     - set CMAKE_BUILD_PARALLEL_LEVEL=%CPU_COUNT%                      # [win]
     - set CMAKE_ARGS="%CMAKE_ARGS% -DIMINUIT_EXTERNAL_PYBIND11=ON"    # [win]
-    - {{ PYTHON }} -m pip install . -vvv
+    - {{ PYTHON }} -m pip install . -vv
 
 requirements:
   build:
@@ -24,11 +24,12 @@ requirements:
     - cross-python_{{ target_platform }}     # [build_platform != target_platform]
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
-    - cmake
+    - cmake >=3.15
     - make  # [unix]
   host:
     - python
     - pip
+    - scikit-build-core
     - pybind11
   run:
     - python
