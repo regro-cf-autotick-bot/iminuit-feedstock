@@ -27,7 +27,7 @@ requirements:
   host:
     - python
     - pip
-    - scikit-build-core
+    - scikit-build-core <0.4.7
     - pybind11
   run:
     - python
